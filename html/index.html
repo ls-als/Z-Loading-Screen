@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Loading-screen</title>
+	<link rel="stylesheet" href="./css/style.css"> <!-- Custom styles -->
+	<link rel="stylesheet" href="./css/loading.css"> <!-- Custom styles -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<!-- Include jQuery library -->
+	<script src="./script.js"></script> <!-- Include custom JavaScript file -->
+</head>
+
+<body>
+	<div id="container">
+		<div class="background-container">
+			<div class="background backgroundToLeftAnim" id="background"></div>
+			<!-- Background container with animation class -->
+		</div>
+
+		<div class="loadingAnimation">
+			<div class="loader">
+				<div class="inner one"></div>
+				<div class="inner two"></div>
+				<div class="inner three"></div>
+			</div>
+		</div>
+
+		<h1 class="text-container"></h1>
+
+		<div class="logo-container">
+			<div class="logoShader"></div>
+			<div class="logo"></div>
+		</div>
+	</div>
+
+	<script>
+		const messages = ["Message 1", "Message 2", "Message 3"];
+		let currentIndex = 0;
+
+		const messageElement = document.createElement("div");
+		messageElement.id = "message";
+		messageElement.style.position = "fixed";
+		messageElement.style.top = "50%";
+		messageElement.style.left = "50%";
+		messageElement.style.transform = "translate(-50%, -50%)";
+		messageElement.style.fontSize = "2rem";
+		messageElement.style.fontWeight = "bold";
+		messageElement.style.textAlign = "center";
+		messageElement.style.width = "100%";
+
+		document.body.appendChild(messageElement);
+
+		function showMessage() {
+			messageElement.style.opacity = 0; // Hide the current message
+
+			setTimeout(() => {
+				messageElement.textContent = messages[currentIndex]; // Update the message
+
+				messageElement.style.opacity = 1; // Show the new message
+
+				currentIndex++;
+				if (currentIndex >= messages.length) {
+					currentIndex = 0;
+				}
+
+				setTimeout(showMessage, 10000); // Show the next message after 10 seconds
+			}, 500); // Wait for 0.5 seconds for the transition to complete
+		}
+
+		showMessage(); // Start the message display function
+	</script>
+
+	<!-- Audio Stuff -->
+	<div id="page">
+		<audio id='music' volume='0.65' autoplay loop>
+			<source src="assets/music.mp3" type="audio/mpeg"> <!-- Add audio source file -->
+			Error
+		</audio>
+		<script>
+			var audio = document.getElementById("music"); // Get the audio element by ID
+			audio.volume = 0.65; // Set the audio volume
+
+			function toggleAudio() {
+				if (audio.paused) {
+					audio.play(); // Play audio if it is paused
+				} else {
+					audio.pause(); // Pause audio if it is playing
+				}
+			}
+
+			function startAudio() {
+				audio.play(); // Start playing the audio
+			}
+
+			document.addEventListener('keypress', function (evt) {
+				if (evt.keyCode == 32) { // If spacebar is pressed
+					toggleAudio(); // Toggle audio play/pause
+				}
+			});
+
+			window.onload = function () {
+				startAudio(); // Start playing audio when the window is loaded
+			}
+		</script>
+	</div>
+</body>
+
+</html>

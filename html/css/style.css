@@ -1,0 +1,160 @@
+html, body {
+	background: #111011;
+	color: white;
+	text-transform: uppercase;
+	background-size: cover;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	overflow: hidden;
+}
+
+/* audio */
+#page {
+	align-items: center;
+	background: linear-gradient(to right, rgba(0, 0, 0, 0) 10%, rgba(54, 54, 54, 1) 100%);
+	bottom: 0;
+	justify-content: right;
+	position: fixed;
+	right: 0;
+	top: 0;
+}
+
+/* main Container */
+#container {
+	display: none;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+/* Background */
+.background-container {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	perspective: 800px;
+}
+
+.background {
+	width: 85%;
+	height: 85%;
+	transform-style: preserve-3d;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	box-shadow: inset 0 0 100px black;
+}
+
+.backgroundToLeftAnim {
+	animation: btoleft 11s infinite linear;
+}
+
+@keyframes btoleft {
+	from {
+		transform: translateX(-1%) perspective(800px) rotateX(-1deg) rotateY(-1deg) skew(1deg, 1deg);
+	}
+	to {
+		transform: translateX(1%) perspective(800px) rotateX(1deg) rotateY(1deg) skew(1deg, 1deg);
+	}
+}
+
+.backgroundToRightAnim {
+	animation: btoright 11s infinite linear;
+}
+
+@keyframes btoright {
+	from {
+		transform: translateX(1%) perspective(800px) rotateX(1deg) rotateY(1deg) skew(1deg, 1deg);
+	}
+	to {
+		transform: translateX(-1%) perspective(800px) rotateX(-1deg) rotateY(-1deg) skew(1deg, 1deg);
+	}
+}
+
+/* Loading */
+.loadingAnimation {
+	width: 60px;
+	height: 60px;
+	position: absolute;
+	bottom: 2rem;
+	right: 2rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.loader {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-color: rgba(255, 255, 255, 0.5);
+	animation: particles 1.5s infinite;
+}
+
+@keyframes particles {
+	0% {
+		transform: scale(1);
+		opacity: 1;
+	}
+	50% {
+		transform: scale(2);
+		opacity: 0;
+	}
+	100% {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+/* Logo */
+.logo-container {
+	width: 175px;
+	height: 175px;
+	position: absolute;
+	bottom: 2rem;
+	left: 2rem;
+}
+
+.logo {
+	z-index: 5 !important;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-image: url("../assets/logo.png");
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.logoShader {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	filter: brightness(0%);
+	opacity: 0.3;
+	transform: translateX(5px) translateY(5px);
+	background-image: url("../assets/logo.png");
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+@keyframes colorChange {
+	0%, 100% {
+		background-color: #EFEFFA;
+	}
+	50% {
+		background-color: #FFB6C1;
+	}
+}
+
+#message {
+	opacity: 0;
+	transition: opacity 0.5s ease-in-out;
+}
