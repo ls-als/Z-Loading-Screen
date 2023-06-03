@@ -2,6 +2,8 @@ fx_version 'cerulean'
 
 game 'gta5'
 
+author "Anto Orza#6115"
+description "Z-Loading-Screen
 version '1.0.1'
 
 loadscreen 'html/index.html'
