@@ -18,6 +18,7 @@ description 'Z-Loading-Screen (https://orzafamily.com/)'
 repository 'https://github.com/LS-Robert/Z-Loading-Screen'
 
 loadscreen 'html/index.html'
+loadscreen_cursor 'yes'
 
 files {
 	"html/index.html",
