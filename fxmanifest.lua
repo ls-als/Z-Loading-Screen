@@ -18,7 +18,6 @@ description 'Z-Loading-Screen (https://orzafamily.com/)'
 repository 'https://github.com/LS-Robert/Z-Loading-Screen'
 
 loadscreen 'html/index.html'
-loadscreen_manual_shutdown 'yes'
 
 files {
 	"html/index.html",
